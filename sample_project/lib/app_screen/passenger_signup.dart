@@ -29,6 +29,11 @@ class Register extends StatefulWidget{
 
 class Register_state extends State<Register>{
 
+  TextEditingController firstcontroller=TextEditingController();
+  TextEditingController secondcontroller=TextEditingController();
+  TextEditingController mailcontroller=TextEditingController();
+  TextEditingController passcontroller=TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -64,7 +69,7 @@ class Register_state extends State<Register>{
           height:40.0 ,
           width:280.0 ,
         child: TextFormField(
-          
+          controller: firstcontroller,
           decoration: InputDecoration(
               labelText: 'First Name',
               labelStyle: TextStyle(fontSize: 15.0,color: Colors.black),
@@ -88,6 +93,7 @@ class Register_state extends State<Register>{
           height:40.0 ,
           width:280.0 ,
         child: TextFormField(
+          controller: secondcontroller,
            decoration: InputDecoration(
             hoverColor: Color(0xffBA680B),
               labelText: 'Last Name',
@@ -114,6 +120,7 @@ class Register_state extends State<Register>{
           height:40.0 ,
           width:280.0 ,
         child: TextFormField(
+          controller: mailcontroller,
           decoration: InputDecoration(
               labelText: 'E-mail',
               labelStyle: TextStyle(fontSize: 15.0,color: Colors.black),
@@ -140,6 +147,7 @@ class Register_state extends State<Register>{
         height: 40.0,
         width: 280.0,
         child: TextFormField(
+          controller: passcontroller,
          obscureText: true,
           decoration: InputDecoration(
               prefixIcon:

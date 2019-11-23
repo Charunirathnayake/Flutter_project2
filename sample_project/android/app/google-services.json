@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "950099836595",
+    "firebase_url": "https://yaman-68116.firebaseio.com",
+    "project_id": "yaman-68116",
+    "storage_bucket": "yaman-68116.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:950099836595:android:d4bb0679890e0621ecfac6",
+        "android_client_info": {
+          "package_name": "com.yaman.sample_project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "950099836595-m3hka6ja1cu0pantri8it9v7rfd56jrv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAYI4O0XKB3nDkLLZ0F0snzhlQ21ipvKq0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "950099836595-m3hka6ja1cu0pantri8it9v7rfd56jrv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
