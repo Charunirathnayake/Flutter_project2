@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'auth.dart';
+import 'passenger_signup.dart';
 
 //sketch of the login page
 class LoginInterface extends StatelessWidget {
@@ -68,7 +69,7 @@ class Loginpage_state extends State<Loginpage> {
         ),
         Text('Login',
             style: TextStyle(
-                color: Color(0xffBA680B),
+                color: Color(0xff079CA3),
                 fontWeight: FontWeight.bold,
                 fontSize: 25.0)),
         SizedBox(
@@ -117,7 +118,7 @@ class Loginpage_state extends State<Loginpage> {
                     return null;
                   }, 
               controller: passwordcontroller,
-              obscureText: true,
+              obscureText: _isHiddenPw,
               decoration: InputDecoration(
                   prefixIcon: Icon(Icons.lock),
                   suffixIcon: IconButton(
@@ -150,11 +151,16 @@ class Loginpage_state extends State<Loginpage> {
                     decoration: TextDecoration.underline,
                     decorationStyle: TextDecorationStyle.solid,
                     fontSize: 15.0,
-                    color: Color(0xff7B4508),
+                    color: Color(0xff079CA3),
                     fontWeight: FontWeight.bold,
                     decorationThickness: 1.5),
               ),
               onTap: () {
+
+                 Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) =>PassengerSignup(),
+                        ));
                 //TODO:define ontap
               },
             ),
@@ -169,7 +175,7 @@ class Loginpage_state extends State<Loginpage> {
         Padding(
           padding: EdgeInsets.only(left: 20.0, right: 20.0),
           child: RaisedButton(
-              color: Color(0xffBA680B),
+              color: Color(0xff079CA3),
               hoverColor: Color(0xffF5CA99),
               onPressed: () async {
                 if (emailcontroller.text.isEmpty ||
@@ -189,7 +195,7 @@ class Loginpage_state extends State<Loginpage> {
               },
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(40.0),
-                side: BorderSide(color: Color(0xffBA680B)),
+                side: BorderSide(color: Color(0xff079CA3)),
               ),
               child: Text(
                 'Login',
@@ -206,7 +212,7 @@ class Loginpage_state extends State<Loginpage> {
                 style: TextStyle(
                     decorationStyle: TextDecorationStyle.solid,
                     fontSize: 15.0,
-                    color: Color(0xff7B4508),
+                    color: Color(0xff079CA3),
                     fontWeight: FontWeight.bold),
               ),
               onTap: () {

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-
+import 'package:firebase_auth/firebase_auth.dart';
+import 'usermanagement.dart';
 //create appbar
 class PassengerSignup extends StatelessWidget{
   @override
@@ -29,6 +30,11 @@ class Register extends StatefulWidget{
 
 class Register_state extends State<Register>{
 
+  var _formKey = GlobalKey<FormState>();
+   UserManagement userObj=new UserManagement();
+
+   
+
   TextEditingController firstcontroller=TextEditingController();
   TextEditingController secondcontroller=TextEditingController();
   TextEditingController mailcontroller=TextEditingController();
@@ -37,6 +43,7 @@ class Register_state extends State<Register>{
   @override
   Widget build(BuildContext context) {
     return Form(
+      key: _formKey,
       child:
     Container(
       child: ListView(children: <Widget>[
@@ -184,7 +191,21 @@ class Register_state extends State<Register>{
           child: RaisedButton(
             color: Color(0xff079CA3),
             hoverColor: Color(0xffF5CA99),
-            onPressed: () {},
+            onPressed: () async{
+                if(_formKey.currentState.validate()){
+                  await FirebaseAuth.instance.createUserWithEmailAndPassword(
+                          email: mailcontroller.text,
+                          password: passcontroller.text
+                        );
+//TODO:navigation for login page
+                  userObj.addData({
+                          'firstname':this.firstcontroller.text,
+                          'lastname':this.secondcontroller.text,
+                          'email':this.mailcontroller.text,
+                        });
+
+                }
+            },
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(40.0),
               side: BorderSide(color: Color(0xff079CA3)),
