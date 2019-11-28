@@ -11,9 +11,9 @@ class LoginInterface extends StatelessWidget {
       appBar: AppBar(
         title: Text(
           'Login',
-          style: TextStyle(fontSize: 20.0),
+          style: TextStyle(fontSize: 20.0, color: Colors.grey),
         ),
-        backgroundColor: Color(0xff079CA3),
+        backgroundColor: Colors.pinkAccent,
       ),
     );
   }
@@ -31,8 +31,8 @@ class Loginpage_state extends State<Loginpage> {
   TextEditingController passwordcontroller = TextEditingController();
   var _formKey = GlobalKey<FormState>();
 
-
-    bool _isHiddenPw = true;
+//password visibility icon
+  bool _isHiddenPw = true;
   bool _isHiddenCPw = true;
 
   void _visiblePw() {
@@ -48,7 +48,6 @@ class Loginpage_state extends State<Loginpage> {
       _isHiddenCPw = !_isHiddenCPw;
     });
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -69,25 +68,25 @@ class Loginpage_state extends State<Loginpage> {
         ),
         Text('Login',
             style: TextStyle(
-                color: Color(0xff079CA3),
+                color: Colors.black,
                 fontWeight: FontWeight.bold,
                 fontSize: 25.0)),
         SizedBox(
           height: 30.0,
         ),
 
-        //Enter E-mail
+        //E-mail field
         Center(
           child: Container(
             height: 40.0,
             width: 280.0,
             child: TextFormField(
-              validator:  (String value) {
-                    if (value.isEmpty) {
-                      return "Enter the E-mail Address";
-                    }
-                    return null;
-                  },
+              validator: (String value) {
+                if (value.isEmpty) {
+                  return "Enter the E-mail Address";
+                }
+                return null;
+              },
               controller: emailcontroller,
               decoration: InputDecoration(
                   prefixIcon: Icon(Icons.email),
@@ -105,28 +104,28 @@ class Loginpage_state extends State<Loginpage> {
           height: 30.0,
         ),
 
-        //Enter password
+        // password field
         Center(
           child: Container(
             height: 40.0,
             width: 280.0,
             child: TextFormField(
               validator: (String value) {
-                    if (value.isEmpty) {
-                      return "Enter the Password";
-                    }
-                    return null;
-                  }, 
+                if (value.isEmpty) {
+                  return "Enter the Password";
+                }
+                return null;
+              },
               controller: passwordcontroller,
               obscureText: _isHiddenPw,
               decoration: InputDecoration(
                   prefixIcon: Icon(Icons.lock),
                   suffixIcon: IconButton(
-                    onPressed:  _visiblePw,
-                      icon: _isHiddenPw
-                          ? Icon(Icons.visibility_off)
-                          : Icon(Icons.visibility),
-                    ),
+                    onPressed: _visiblePw,
+                    icon: _isHiddenPw
+                        ? Icon(Icons.visibility_off)
+                        : Icon(Icons.visibility),
+                  ),
                   labelText: 'Password',
                   hintText: 'Password',
                   hintStyle: TextStyle(fontSize: 15.0, color: Colors.grey),
@@ -151,17 +150,16 @@ class Loginpage_state extends State<Loginpage> {
                     decoration: TextDecoration.underline,
                     decorationStyle: TextDecorationStyle.solid,
                     fontSize: 15.0,
-                    color: Color(0xff079CA3),
+                    color: Colors.black,
                     fontWeight: FontWeight.bold,
                     decorationThickness: 1.5),
               ),
               onTap: () {
-
-                 Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) =>PassengerSignup(),
-                        ));
-                //TODO:define ontap
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => PassengerSignup(),
+                    ));
               },
             ),
           ),
@@ -175,14 +173,14 @@ class Loginpage_state extends State<Loginpage> {
         Padding(
           padding: EdgeInsets.only(left: 20.0, right: 20.0),
           child: RaisedButton(
-              color: Color(0xff079CA3),
+              color: Colors.pinkAccent,
               hoverColor: Color(0xffF5CA99),
               onPressed: () async {
                 if (emailcontroller.text.isEmpty ||
                     passwordcontroller.text.isEmpty) {
-                        setState(() {
-                          _formKey.currentState.reset();
-                        });
+                  setState(() {
+                    _formKey.currentState.reset();
+                  });
 
                   return;
                 } else {
@@ -194,12 +192,13 @@ class Loginpage_state extends State<Loginpage> {
                 }
               },
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(40.0),
-                side: BorderSide(color: Color(0xff079CA3)),
-              ),
+                  borderRadius: BorderRadius.circular(40.0),
+                  side: BorderSide(
+                    color: Colors.pinkAccent,
+                  )),
               child: Text(
                 'Login',
-                style: TextStyle(color: Colors.white, fontSize: 20.0),
+                style: TextStyle(color: Colors.black, fontSize: 20.0),
               )),
         ),
 
@@ -212,12 +211,10 @@ class Loginpage_state extends State<Loginpage> {
                 style: TextStyle(
                     decorationStyle: TextDecorationStyle.solid,
                     fontSize: 15.0,
-                    color: Color(0xff079CA3),
+                    color: Colors.black,
                     fontWeight: FontWeight.bold),
               ),
-              onTap: () {
-                //TODO:DEFINE ONTAP
-              },
+              onTap: () {},
             ),
           ),
         ),
